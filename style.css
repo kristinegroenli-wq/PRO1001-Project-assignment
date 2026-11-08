@@ -1,0 +1,97 @@
+body {
+    /* uigradients.com, copied from the example in module 6 and adjusted */
+    background: #0f0c29;  
+    background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);;  
+    background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: Oxygen, sans-serif;
+    color: white;
+    margin-left: 100px;
+    
+}
+
+header {
+    margin-bottom: 40px;
+}
+
+.Intro {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    margin-top: 40px;
+}
+
+main {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+nav {
+    background-color: #302b63;
+    padding: 10px;
+    margin-top: 20px;
+   
+}
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: flex-start; /*Found this method on https://css-tricks.com/snippets/css/a-guide-to-flexbox/*/
+}
+nav li {
+    display: inline;
+}
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+}
+nav a:hover {
+    background-color: darkgrey;
+}
+
+h3 {
+    font-size: 28px;
+    margin: bottom 10px;
+}
+
+
+
+.Information { 
+margin-top: 30px;
+padding: 15px;
+border-radius: 10px;
+text-align: center;
+}
+
+
+
+.Informationcolumn {
+    display:flex;
+    flex-direction: column;
+    border: 2px solid white;
+    margin-top: 30px;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.Informationcolumns {
+    display:flex;
+    gap: 20px;
+   
+}
+
+footer {
+    width: 100%;
+    text-align: center;
+    margin-top: auto;
+}
