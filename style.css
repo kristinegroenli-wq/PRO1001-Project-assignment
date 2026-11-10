@@ -82,6 +82,12 @@ text-align: center;
 }
 
 
+#overview {
+height: 500px;
+width: 100%;
+max-width: 800px;
+}
+
 
 footer {
     width: 100%;
