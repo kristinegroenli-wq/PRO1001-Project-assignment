@@ -72,13 +72,31 @@ fetch(baseUrl + "query", { method: 'GET' })
             //håper å kunne bruke denne i y aksen i grafen
             console.log('MaxVerdi: ', maxVerdi); //for å se hva den returnerer
 
-
-
-
+             Highcharts.chart('overview', {
+        chart: { type: 'column' },
+        title: { text: 'Number of positive tests per pathogen week '+sisteVerdi},
+        xAxis: {
+          title: { text: 'Pathogen' },
+          categories: data.dimension.Agens.category.index,
+          labels: { rotation: -45 }
+        },
+        yAxis: {
+          title: { text: 'Number of positive tests' },
+          min: 0,
+          max: maxVerdi
+        },
+        accessibility: { enabled: true },
+        series: [{
+          name: 'Number of positive tests per pathogen week '+sisteVerdi,
+          data: data.value
+        }]
+      });
     });
-  });
+  })
   
-
+.catch(err => {
+    console.error('Failed to fetch data:', err);
+  });
 
 
  
