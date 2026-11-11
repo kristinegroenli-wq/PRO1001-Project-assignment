@@ -1,4 +1,6 @@
 
+//Javascript for the fhiapi.html//
+
 const baseUrl = 'https://statistikk-data.fhi.no/api/open/v1/msis/Table/733/'; 
 //From codesamples https://github.com/folkehelseinstituttet/Fhi.Statistikk.OpenAPI/blob/main/Code_samples/React/fhi-open-api-client/src/api.js
 //Deklarerer hvilken tabell som skal brukes
@@ -99,6 +101,17 @@ fetch(baseUrl + "query", { method: 'GET' })
   });
 
 
+//Javascript for the diseaseinformation.html//
+
+document.getElementById("adenovirus").addEventListener("click", function(){
+  document.getElementById("informationbox").textContent = 
+  "Adenovirus is a respiratory disease that can cause disease in both humans and animals. It can cause soar trought, fever, and conjunctivitis "
+});
+
+document.getElementById("bordtellapertussis").addEventListener("click", function(){
+  document.getElementById("informationbox").textContent = 
+  " Legg til tekst "
+});
  
 
   
