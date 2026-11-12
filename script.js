@@ -114,11 +114,48 @@ document.getElementById("bordtellapertussis").addEventListener("click", function
 });
  
 
-  
+document.getElementById("chlamydiapneumoniae").addEventListener("click", function(){
+  document.getElementById("informationbox").textContent = 
+  " Legg til tekst "
+});  
  
 
+document.getElementById("influensavirusa").addEventListener("click", function(){
+  document.getElementById("informationbox").textContent = 
+  " Legg til tekst "
+});
 
+document.getElementById("influensavirusb").addEventListener("click", function(){
+  document.getElementById("informationbox").textContent = 
+  " Legg til tekst "
+});   
 
-   
+document.getElementById("metapneumovirus").addEventListener("click", function(){
+  document.getElementById("informationbox").textContent = 
+  " Legg til tekst "
+}); 
 
+document.getElementById("mycoplasma").addEventListener("click", function(){
+  document.getElementById("informationbox").textContent = 
+  " Legg til tekst "
+}); 
 
+document.getElementById("parainfluensavirus").addEventListener("click", function(){
+  document.getElementById("informationbox").textContent = 
+  " Legg til tekst "
+}); 
+
+document.getElementById("sarscovid").addEventListener("click", function(){
+  document.getElementById("informationbox").textContent = 
+  " Legg til tekst "
+}); 
+
+document.getElementById("rhinovirus").addEventListener("click", function(){
+  document.getElementById("informationbox").textContent = 
+  " Legg til tekst "
+}); 
+
+document.getElementById("rsvirus").addEventListener("click", function(){
+  document.getElementById("informationbox").textContent = 
+  " Legg til tekst "
+}); 
