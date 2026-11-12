@@ -53,7 +53,11 @@ const query = {
 fetch(baseUrl + "query", { method: 'GET' })
   .then(response => response.json())
   .then(data => {console.log('apidata:', data);
-   const sisteVerdi = data.dimensions[1].values.at(-1); //.at(-1) henter den siste verdien i arrayet. 
+  const uke = data.dimensions[1].values;
+  const sisteVerdi = [...uke].sort().at(-1) //Første forsøk fungerte ikke. Sjekket i dag om uken hadde oppdatert seg, men arrayet returnete ikke
+  //ukene i kronologisk rekkefølge. Så kunne ikke bruke opprinnelig logikk. Brukte AI til å hjelpe meg med en string sort. Denne gir en ny sortert array der 
+  //jeg gjenbruker litt av koden fra første forsøk. Ser ut som dette fungerer fint.
+   //const sisteVerdi = data.dimensions[1].values.at(-1); //.at(-1) henter den siste verdien i arrayet. 
    //Brukte JSON pathfinder for å finne dimensions[1].values for lese array fra json
    
    console.log('Siste uke', sisteVerdi);//vises i consol loggen (f12) at riktig uke er hentet
@@ -105,18 +109,18 @@ fetch(baseUrl + "query", { method: 'GET' })
 
 document.getElementById("adenovirus").addEventListener("click", function(){
   document.getElementById("informationbox").textContent = 
-  "Adenovirus is a respiratory disease that can cause disease in both humans and animals. It can cause soar trought, fever, and conjunctivitis "
+  "Adenovirus is a respiratory disease that can cause disease in both humans and animals. It can cause soar trought, fever, and conjunctivitis. Source: NHI,2026" 
 });
 
 document.getElementById("bordtellapertussis").addEventListener("click", function(){
   document.getElementById("informationbox").textContent = 
-  " Legg til tekst "
+  "Bordtella pertussis (also known as whooping cough) is highly contagious and spreads via respiratory droplets. It causes severe cough, and can last 2-3 months or more. The infection is dangerous for small children, and is therefore included in the child vaccination program. Source: FHI,2026  "
 });
  
 
 document.getElementById("chlamydiapneumoniae").addEventListener("click", function(){
   document.getElementById("informationbox").textContent = 
-  " Legg til tekst "
+  "Chlamydia pneumoniae is a bacterial infection that spreads trough respiratory droplet, and often give moderate cold symptoms. But it can develop to more severe infections like  "
 });  
  
 
