@@ -26,12 +26,14 @@
         <main>
             <section id="positivecases">
                 <h2>Positive test cases nationwide</h2>
+                <p id="loadingtext" aria-live="polite">Loading data to chart</p>
+                <p id="errormessage" aria-live="assertive"></p>
                 <div id="overview"></div>
                 <p class="overviewcomment">The data is updated every thursday, and shows numbers for the last week. Source:Fhi.Statistikk.OpenAPI, MSIS-labdatabase
                 </p>
             </section>
 
-             <form>
+             <form id="subscriptionform">
                 <p>Add your name and email to get monthy updates on respiratory infection outbreaks 🤧</p>
                 <label for="Name">Your Name</label>
                 <input 
