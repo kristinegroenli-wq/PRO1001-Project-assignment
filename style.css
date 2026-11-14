@@ -1,3 +1,5 @@
+/*For all pages */
+
 body {
     /* uigradients.com, copied from the example in module 6 and adjusted */
     background: #0f0c29;  
@@ -17,13 +19,11 @@ header {
     margin-bottom: 20px;
 }
 
-.Intro {
-    
-    margin-top: 30px;
-    max-width: 1200px;
-
+footer {
+    width: 100%;
+    text-align: center;
+    margin-top: auto;
 }
-
 
 nav {
     background-color: #302b63;
@@ -55,7 +55,14 @@ h3 {
     margin-bottom: 10px;
 }
 
+/*For the prevention page */
 
+.Intro {
+    
+    margin-top: 30px;
+    max-width: 1200px;
+
+}
 
 .Information { 
 margin-top: 30px;
@@ -82,6 +89,7 @@ text-align: center;
     border-radius: 10px;
 }
 
+/*For the test cases page */
 
 #overview {
 height: 500px;
@@ -137,6 +145,8 @@ input[type="submit"], button{
     cursor: pointer; 
 }
 
+/* For the diseases page*/
+
 #informationbox {
     display: flex;
     border: 2px solid white;
@@ -158,8 +168,3 @@ input[type="submit"], button{
 }
 
 
-footer {
-    width: 100%;
-    text-align: center;
-    margin-top: auto;
-}
