@@ -52,9 +52,14 @@ const query = {
 const loading = document.getElementById("loadingtext");
 const error = document.getElementById("errormessage");
 
-loading.style.display = "block";
-loading.textContent = "Loading chart data"
-error.textContent = "";
+
+
+
+if (document.getElementById("overview")) {
+
+  loading.style.display = "block";
+  loading.textContent = "Loading chart data"
+  error.textContent = "";
 
 // denne gir https://statistikk-data.fhi.no/api/open/v1/msis/Table/733/query', slik som i swagger
 fetch(baseUrl + "query", { method: 'GET' })
@@ -119,13 +124,16 @@ fetch(baseUrl + "query", { method: 'GET' })
     loading.style.display = "none";
   })
   
+  
 .catch(err => {
   loading.style.display = "none";
-  error.textContent = "Failed to fetch data"
+  error.textContent = "Failed to fetch data, try again later"
     console.error('Failed to fetch data:', err);
   });
+}
 
 //Event listener for form submission
+if (document.getElementById("subscriptionform")) {
 
 let form = 
 document.getElementById("subscriptionform");
@@ -147,9 +155,11 @@ form.addEventListener("submit", function(event){
     return;
   }
 });
-
+}
 
 //Javascript for the diseaseinformation.html//
+
+if (document.getElementById("informationbox")) {
 
 document.getElementById("adenovirus").addEventListener("click", function(){
   document.getElementById("informationbox").textContent = 
@@ -207,3 +217,4 @@ document.getElementById("rsvirus").addEventListener("click", function(){
   document.getElementById("informationbox").textContent = 
   " Legg til tekst "
 }); 
+}
