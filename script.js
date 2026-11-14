@@ -49,10 +49,22 @@ const query = {
   }
 };
 
+const loading = document.getElementById("loadingtext");
+const error = document.getElementById("errormessage");
+
+loading.style.display = "block";
+loading.textContent = "Loading chart data"
+error.textContent = "";
+
 // denne gir https://statistikk-data.fhi.no/api/open/v1/msis/Table/733/query', slik som i swagger
 fetch(baseUrl + "query", { method: 'GET' })
-  .then(response => response.json())
-  .then(data => {console.log('apidata:', data);
+  .then(response => {if (!response.ok) {
+        throw new Error(`Trouble with fetching data! status: ${response.status}`)
+      } 
+      return response.json();
+    })
+  .then(data => {
+    console.log('apidata:', data);
   const uke = data.dimensions[1].values;
   const sisteVerdi = [...uke].sort().at(-1) //Første forsøk fungerte ikke. Sjekket i dag om uken hadde oppdatert seg, men arrayet returnete ikke
   //ukene i kronologisk rekkefølge. Så kunne ikke bruke opprinnelig logikk. Brukte AI til å hjelpe meg med en string sort. Denne gir en ny sortert array der 
@@ -72,8 +84,14 @@ fetch(baseUrl + "query", { method: 'GET' })
         },
         body: JSON.stringify( query) //Module 6.2 og https://github.com/folkehelseinstituttet/Fhi.Statistikk.OpenAPI/blob/main/Code_samples/React/fhi-open-api-client/src/api.js
         })
-        .then(response => response.json())
-        .then(data => {console.log('Rådata', data);
+        .then(response => {if (!response.ok) {
+        throw new Error(`Trouble with fetching data! status: ${response.status}`)
+      } 
+      return response.json()
+     })
+        .then(data => {
+          loading.textContent = "Creating chart";
+          console.log('Rådata', data);
             const maxVerdi = Math.max(...data.value); //Finner max verdien i array https://code.mu/en/javascript/manual/math/Math.max/ 
             //håper å kunne bruke denne i y aksen i grafen
             console.log('MaxVerdi: ', maxVerdi); //for å se hva den returnerer
@@ -98,11 +116,37 @@ fetch(baseUrl + "query", { method: 'GET' })
         }]
       });
     });
+    loading.style.display = "none";
   })
   
 .catch(err => {
+  loading.style.display = "none";
+  error.textContent = "Failed to fetch data"
     console.error('Failed to fetch data:', err);
   });
+
+//Event listener for form submission
+
+let form = 
+document.getElementById("subscriptionform");
+
+form.addEventListener("submit", function(event){
+
+  let name = document.getElementById("Name").value.trim();
+  let email = document.getElementById("Email").value.trim();
+
+  if (name === "") {
+    event.preventDefault();
+    alert("Name is required")
+    return
+  }
+  
+  if (!email.includes ("@")) {
+    event.preventDefault();
+    alert("Enter a email adress")
+    return;
+  }
+});
 
 
 //Javascript for the diseaseinformation.html//
